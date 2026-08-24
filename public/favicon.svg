@@ -5,8 +5,8 @@
       <stop offset="100%" stop-color="#0055ff" />
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="24" fill="#030b17" />
-  <rect x="3" y="3" width="94" height="94" rx="21" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.8" />
+  <rect width="100" height="100" fill="#030b17" />
+  <rect x="3" y="3" width="94" height="94" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.8" />
   
   <!-- Stylized Caravan -->
   <path d="M22 62 L22 38 Q22 32 30 32 L70 32 Q80 32 82 42 L84 62 Z" fill="#ffffff" />

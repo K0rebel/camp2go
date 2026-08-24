@@ -33,7 +33,7 @@ export const GarageShowcase: React.FC = () => {
           <img
             src="/favicon.svg"
             alt="Camp2Go Logo"
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl shadow-md shadow-cyan-500/20 object-contain"
+            className="w-7 h-7 sm:w-8 sm:h-8 shadow-md shadow-cyan-500/20 object-contain"
           />
           <h1 className="text-sm sm:text-base font-black tracking-wider text-white uppercase drop-shadow-sm">
             CAMP2GO

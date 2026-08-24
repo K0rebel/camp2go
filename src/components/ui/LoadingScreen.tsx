@@ -42,15 +42,15 @@ export const LoadingScreen: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center max-w-sm w-full text-center">
         {/* Animated Brand Logo */}
         <div className="relative mb-6">
-          <div className="w-20 h-20 rounded-2xl p-1 bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 shadow-2xl shadow-cyan-500/40 flex items-center justify-center animate-bounce duration-1000">
+          <div className="w-20 h-20 p-1 bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 shadow-2xl shadow-cyan-500/40 flex items-center justify-center animate-bounce duration-1000">
             <img
               src="/favicon.svg"
               alt="Camp2Go Logo"
-              className="w-full h-full rounded-xl object-contain drop-shadow-md"
+              className="w-full h-full object-contain drop-shadow-md"
             />
           </div>
           {/* Subtle Outer Neon Ring */}
-          <div className="absolute -inset-2 rounded-3xl border border-cyan-400/30 animate-ping opacity-25 pointer-events-none" />
+          <div className="absolute -inset-2 border border-cyan-400/30 animate-ping opacity-25 pointer-events-none" />
         </div>
 
         {/* Brand Name */}
