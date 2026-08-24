@@ -75,3 +75,19 @@ html, body {
 .pt-safe {
   padding-top: max(env(safe-area-inset-top, 0px), 12px);
 }
+
+/* Hide Netlify Feedback / Drawer / Powered by Netlify badge */
+#netlify-drawer-root,
+.netlify-drawer,
+[data-netlify-deploy-preview-badge],
+iframe[title*="Netlify" i],
+iframe[src*="netlify" i],
+div[class*="netlify" i],
+#netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}

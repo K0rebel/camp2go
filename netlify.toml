@@ -1,6 +1,8 @@
 [build]
   publish = "dist"
   command = "npm run build"
+  [build.environment]
+    NETLIFY_DRAWER = "false"
 
 [[redirects]]
   from = "/*"
