@@ -6,6 +6,7 @@ export const TopProgressBar: React.FC = () => {
   const currentStepIndex = useChecklistStore((state) => state.currentStepIndex);
   const isInspecting = useChecklistStore((state) => state.isInspecting);
   const isGarage = useChecklistStore((state) => state.isGarage);
+  const openGarage = useChecklistStore((state) => state.openGarage);
 
   if (isGarage) return null;
 
@@ -16,17 +17,21 @@ export const TopProgressBar: React.FC = () => {
     <header className="relative z-30 pt-safe px-4 sm:px-6 pt-3 sm:pt-6 pb-2 w-full max-w-2xl mx-auto pointer-events-none">
       {/* Top Header Row */}
       <div className="flex items-center justify-between gap-3 mb-2.5">
-        {/* Brand / Logo */}
-        <div className="flex items-center gap-2">
+        {/* Brand / Logo - Clickable to return to garage/home screen */}
+        <button
+          onClick={openGarage}
+          className="flex items-center gap-2 pointer-events-auto cursor-pointer group active:scale-95 transition-all text-left"
+          title="Wróć do ekranu głównego"
+        >
           <img
             src="/favicon.svg"
             alt="Camp2Go Logo"
-            className="w-7 h-7 sm:w-8 sm:h-8 shadow-md shadow-cyan-500/20 object-contain"
+            className="w-7 h-7 sm:w-8 sm:h-8 shadow-md shadow-cyan-500/20 object-contain group-hover:scale-105 transition-transform"
           />
-          <h1 className="text-sm sm:text-base font-black tracking-wider text-white uppercase drop-shadow-sm">
+          <h1 className="text-sm sm:text-base font-black tracking-wider text-white uppercase drop-shadow-sm group-hover:text-cyan-300 transition-colors">
             CAMP2GO
           </h1>
-        </div>
+        </button>
 
         {/* Step Counter Indicator with pill badge */}
         {isInspecting && (

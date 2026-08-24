@@ -1,9 +1,9 @@
 import React, { Suspense, useRef, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { ContactShadows, OrbitControls } from '@react-three/drei';
+import { ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
 import { CaravanModel } from './CaravanModel';
-import { CameraRig } from './CameraRig';
+import { CameraController } from './CameraController';
 import { HotspotMarker } from './HotspotMarker';
 import { useChecklistStore } from '../../store/useChecklistStore';
 import { INSPECTION_STEPS } from '../../config/stepsConfig';
@@ -106,7 +106,7 @@ export const CaravanScene: React.FC = () => {
   const currentStep = INSPECTION_STEPS[currentStepIndex];
 
   return (
-    <div className="w-full h-full absolute inset-0">
+    <div className="w-full h-full absolute inset-0 touch-none">
       <Canvas
         camera={{ position: [7.2, 3.2, 6.5], fov: 42, near: 0.1, far: 60 }}
         dpr={[1, 2]}
@@ -116,6 +116,9 @@ export const CaravanScene: React.FC = () => {
 
         {/* Dynamic Responsive Camera Adapter */}
         <ResponsiveCameraHandler />
+
+        {/* Universal Gesture Camera Controller (Orbit, Drag, Pinch-Zoom) */}
+        <CameraController />
 
         {/* Ambient & Studio Lighting */}
         <ambientLight intensity={0.85} />
@@ -143,21 +146,6 @@ export const CaravanScene: React.FC = () => {
 
         {/* Rear Rim Light for crisp contour separation */}
         <pointLight position={[0, 4, -5]} intensity={1.0} color="#00d2ff" />
-
-        {/* Camera Controller: OrbitControls in Garage Mode, CameraRig in Inspection */}
-        {isGarage ? (
-          <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            autoRotate={true}
-            autoRotateSpeed={1.2}
-            minPolarAngle={Math.PI / 4}
-            maxPolarAngle={Math.PI / 2 - 0.05}
-            target={[0, 1.25, 0.0]}
-          />
-        ) : (
-          <CameraRig />
-        )}
 
         {/* Main 3D Caravan Model */}
         <Suspense fallback={null}>
