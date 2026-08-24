@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#0055ff" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#030b17" />
+  <rect x="3" y="3" width="94" height="94" rx="21" fill="none" stroke="url(#g)" stroke-width="4" opacity="0.8" />
+  
+  <!-- Stylized Caravan -->
+  <path d="M22 62 L22 38 Q22 32 30 32 L70 32 Q80 32 82 42 L84 62 Z" fill="#ffffff" />
+  <path d="M22 48 L83 48 L83 55 L22 55 Z" fill="url(#g)" />
+  
+  <!-- Window -->
+  <rect x="52" y="36" width="18" height="10" rx="2" fill="#030b17" />
+  
+  <!-- Towbar & Hitch -->
+  <path d="M82 58 L90 58 L90 54" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" />
+  
+  <!-- Wheels -->
+  <circle cx="48" cy="64" r="10" fill="#0f172a" stroke="#ffffff" stroke-width="3" />
+  <circle cx="48" cy="64" r="4" fill="url(#g)" />
+</svg>
