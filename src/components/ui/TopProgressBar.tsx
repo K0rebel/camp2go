@@ -26,7 +26,7 @@ export const TopProgressBar: React.FC = () => {
           <img
             src="/favicon.svg"
             alt="Camp2Go Logo"
-            className="w-7 h-7 sm:w-8 sm:h-8 shadow-md shadow-cyan-500/20 object-contain group-hover:scale-105 transition-transform"
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl shadow-md shadow-cyan-500/20 object-contain group-hover:scale-105 transition-transform"
           />
           <h1 className="text-sm sm:text-base font-black tracking-wider text-white uppercase drop-shadow-sm group-hover:text-cyan-300 transition-colors">
             CAMP2GO

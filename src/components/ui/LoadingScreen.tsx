@@ -11,11 +11,11 @@ export const LoadingScreen: React.FC = () => {
     if (!active && progress >= 100) {
       const timer = setTimeout(() => {
         setIsDone(true);
-      }, 400);
+      }, 350);
 
       const unmountTimer = setTimeout(() => {
         setIsRendered(false);
-      }, 1000);
+      }, 950);
 
       return () => {
         clearTimeout(timer);
@@ -30,58 +30,40 @@ export const LoadingScreen: React.FC = () => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030b17] px-6 transition-all duration-700 ease-out ${
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030b17] px-6 transition-all duration-600 ease-out ${
         isDone ? 'opacity-0 pointer-events-none scale-105' : 'opacity-100'
       }`}
     >
-      {/* Background ambient lighting effects */}
-      <div className="absolute w-72 h-72 rounded-full bg-cyan-500/15 blur-[100px] pointer-events-none -translate-y-8 animate-pulse" />
-      <div className="absolute w-96 h-96 rounded-full bg-blue-600/10 blur-[120px] pointer-events-none translate-y-16" />
+      {/* Subtle ambient lighting */}
+      <div className="absolute w-64 h-64 rounded-full bg-cyan-500/15 blur-[90px] pointer-events-none -translate-y-4" />
 
-      {/* Main Container */}
-      <div className="relative z-10 flex flex-col items-center max-w-sm w-full text-center">
-        {/* Animated Brand Logo */}
-        <div className="relative mb-6">
-          <div className="w-20 h-20 p-1 bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-600 shadow-2xl shadow-cyan-500/40 flex items-center justify-center animate-bounce duration-1000">
-            <img
-              src="/favicon.svg"
-              alt="Camp2Go Logo"
-              className="w-full h-full object-contain drop-shadow-md"
-            />
-          </div>
-          {/* Subtle Outer Neon Ring */}
-          <div className="absolute -inset-2 border border-cyan-400/30 animate-ping opacity-25 pointer-events-none" />
+      {/* Main Minimal Container */}
+      <div className="relative z-10 flex flex-col items-center max-w-xs w-full text-center">
+        {/* Rounded Logo */}
+        <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 rounded-2xl shadow-xl shadow-cyan-500/30 overflow-hidden flex items-center justify-center animate-pulse duration-1000">
+          <img
+            src="/favicon.svg"
+            alt="Camp2Go Logo"
+            className="w-full h-full object-contain drop-shadow-md rounded-2xl"
+          />
         </div>
 
         {/* Brand Name */}
-        <h1 className="text-2xl sm:text-3xl font-black tracking-widest text-white uppercase drop-shadow-lg mb-1">
+        <h1 className="text-xl sm:text-2xl font-black tracking-widest text-white uppercase drop-shadow-md mb-6">
           CAMP2GO
         </h1>
-        <p className="text-xs sm:text-sm font-medium text-cyan-200/80 mb-8 tracking-wide">
-          Asystent Przyczepy Kempingowej 3D
-        </p>
 
-        {/* Modern Progress Bar */}
-        <div className="w-full bg-slate-900/80 border border-cyan-500/30 rounded-full p-1 shadow-inner mb-3">
+        {/* Minimal Progress Bar */}
+        <div className="w-48 bg-slate-900/80 border border-cyan-500/25 rounded-full p-[2px] shadow-inner mb-2">
           <div
-            className="h-2.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-600 rounded-full transition-all duration-300 ease-out shadow-sm shadow-cyan-400/50"
+            className="h-1.5 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 rounded-full transition-all duration-200 ease-out"
             style={{ width: `${displayPercent}%` }}
           />
         </div>
 
-        {/* Status Text & Percentage */}
-        <div className="flex items-center justify-between w-full px-1 text-xs font-semibold text-slate-400">
-          <span className="animate-pulse">
-            {displayPercent < 100 ? 'Wczytywanie modelu 3D...' : 'Gotowe!'}
-          </span>
-          <span className="text-cyan-400 font-mono font-bold text-sm">
-            {displayPercent}%
-          </span>
-        </div>
-
-        {/* Tip at the bottom */}
-        <div className="mt-12 text-[11px] text-slate-500 max-w-xs font-normal">
-          Wskazówka: Po wczytaniu możesz zapisać aplikację na ekranie głównym telefonu.
+        {/* Percentage Counter */}
+        <div className="text-xs font-mono font-bold text-cyan-400/90 tracking-wider">
+          {displayPercent}%
         </div>
       </div>
     </div>
