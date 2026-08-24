@@ -5,6 +5,7 @@ import { TopProgressBar } from './components/ui/TopProgressBar';
 import { StepCard } from './components/ui/StepCard';
 import { CompletionScreen } from './components/ui/CompletionScreen';
 import { LoadingScreen } from './components/ui/LoadingScreen';
+import { InstallPwaGate } from './components/ui/InstallPwaGate';
 import { useChecklistStore } from './store/useChecklistStore';
 
 export const App: React.FC = () => {
@@ -34,6 +35,9 @@ export const App: React.FC = () => {
 
   return (
     <main className="fixed inset-0 w-full h-[100dvh] bg-[#030b17] overflow-hidden flex flex-col justify-between select-none touch-none">
+      {/* PWA Home Screen Installation Gate for Mobile */}
+      <InstallPwaGate />
+
       {/* App Preloader / 3D Model Loading Screen */}
       <LoadingScreen />
 
