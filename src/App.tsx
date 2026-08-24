@@ -33,7 +33,7 @@ export const App: React.FC = () => {
   }, [isGarage, isInspecting, isCompleted, nextStep, prevStep]);
 
   return (
-    <main className="relative w-full h-full min-h-screen bg-[#030b17] overflow-hidden flex flex-col justify-between select-none">
+    <main className="fixed inset-0 w-full h-[100dvh] bg-[#030b17] overflow-hidden flex flex-col justify-between select-none touch-none">
       {/* App Preloader / 3D Model Loading Screen */}
       <LoadingScreen />
 

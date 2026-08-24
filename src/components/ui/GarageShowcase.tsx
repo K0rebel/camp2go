@@ -29,7 +29,7 @@ export const GarageShowcase: React.FC = () => {
     <div className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-between overflow-hidden select-none">
       {/* ================= TOP BRAND LOGO ================= */}
       <header className="relative z-30 pt-safe px-4 sm:px-6 pt-3 sm:pt-6 pb-2 w-full max-w-2xl mx-auto pointer-events-none">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <img
             src="/favicon.svg"
             alt="Camp2Go Logo"
@@ -43,14 +43,14 @@ export const GarageShowcase: React.FC = () => {
 
       {/* ================= BOTTOM CARAVAN INFO CARD ================= */}
       <div className="absolute inset-x-0 bottom-0 z-30 w-full pointer-events-none flex flex-col justify-end">
-        <div className="blue-gradient-bottom px-4 sm:px-6 pt-14 sm:pt-20 pb-5 sm:pb-8 pb-safe pointer-events-auto transition-all w-full">
-          <div className="max-w-lg mx-auto space-y-3.5 sm:space-y-4">
+        <div className="blue-gradient-bottom px-4 sm:px-6 pt-10 sm:pt-16 pb-4 sm:pb-8 pb-safe pointer-events-auto transition-all w-full">
+          <div className="max-w-lg mx-auto space-y-2.5 sm:space-y-3.5">
             {/* Header: Brand & Model Name */}
             <div className="text-center">
-              <span className="text-[10px] sm:text-xs font-black tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 uppercase">
+              <span className="text-[10px] sm:text-xs font-black tracking-widest px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 uppercase">
                 {activeVehicle.brand}
               </span>
-              <h2 className="text-xl sm:text-3xl font-black italic tracking-tight text-white uppercase mt-1.5 sm:mt-2 drop-shadow-md">
+              <h2 className="text-lg sm:text-2xl md:text-3xl font-black italic tracking-tight text-white uppercase mt-1 sm:mt-1.5 drop-shadow-md">
                 {activeVehicle.modelName}
               </h2>
             </div>
@@ -58,36 +58,36 @@ export const GarageShowcase: React.FC = () => {
             {/* Spec HUD Grid */}
             <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
               {/* Year */}
-              <div className="bg-slate-900/70 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 text-center backdrop-blur-md">
-                <div className="flex items-center justify-center gap-1 text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase mb-0.5">
-                  <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-400" />
+              <div className="bg-slate-900/75 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2 text-center backdrop-blur-md">
+                <div className="flex items-center justify-center gap-1 text-[9px] font-bold text-slate-400 uppercase mb-0.5">
+                  <Calendar className="w-2.5 h-2.5 text-cyan-400" />
                   <span>Rok</span>
                 </div>
                 <span className="text-xs sm:text-sm font-black text-white">{activeVehicle.year}</span>
               </div>
 
               {/* Length */}
-              <div className="bg-slate-900/70 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 text-center backdrop-blur-md">
-                <div className="flex items-center justify-center gap-1 text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase mb-0.5">
-                  <Ruler className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-400" />
+              <div className="bg-slate-900/75 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2 text-center backdrop-blur-md">
+                <div className="flex items-center justify-center gap-1 text-[9px] font-bold text-slate-400 uppercase mb-0.5">
+                  <Ruler className="w-2.5 h-2.5 text-cyan-400" />
                   <span>Długość</span>
                 </div>
                 <span className="text-xs sm:text-sm font-black text-white">{activeVehicle.length}</span>
               </div>
 
               {/* DMC */}
-              <div className="bg-slate-900/70 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 text-center backdrop-blur-md">
-                <div className="flex items-center justify-center gap-1 text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase mb-0.5">
-                  <Weight className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-400" />
+              <div className="bg-slate-900/75 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2 text-center backdrop-blur-md">
+                <div className="flex items-center justify-center gap-1 text-[9px] font-bold text-slate-400 uppercase mb-0.5">
+                  <Weight className="w-2.5 h-2.5 text-cyan-400" />
                   <span>DMC</span>
                 </div>
                 <span className="text-xs sm:text-sm font-black text-white">{activeVehicle.dmc}</span>
               </div>
 
               {/* Berths */}
-              <div className="bg-slate-900/70 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 text-center backdrop-blur-md">
-                <div className="flex items-center justify-center gap-1 text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase mb-0.5">
-                  <Users className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-400" />
+              <div className="bg-slate-900/75 border border-cyan-400/20 rounded-lg sm:rounded-xl p-1.5 sm:p-2 text-center backdrop-blur-md">
+                <div className="flex items-center justify-center gap-1 text-[9px] font-bold text-slate-400 uppercase mb-0.5">
+                  <Users className="w-2.5 h-2.5 text-cyan-400" />
                   <span>Miejsca</span>
                 </div>
                 <span className="text-xs sm:text-sm font-black text-white">{activeVehicle.berths}</span>
@@ -97,7 +97,7 @@ export const GarageShowcase: React.FC = () => {
             {/* Action Button */}
             <button
               onClick={startInspection}
-              className="w-full py-3.5 sm:py-4 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:to-indigo-500 text-white font-extrabold italic text-sm sm:text-base tracking-wide shadow-lg shadow-cyan-500/35 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+              className="w-full py-3 sm:py-3.5 px-4 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:to-indigo-500 text-white font-extrabold italic text-xs sm:text-base tracking-wide shadow-lg shadow-cyan-500/35 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
             >
               <span>ROZPOCZNIJ INSPEKCJĘ</span>
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />

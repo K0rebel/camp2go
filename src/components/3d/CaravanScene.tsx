@@ -1,5 +1,5 @@
-import React, { Suspense, useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import React, { Suspense, useRef, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { ContactShadows, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import { CaravanModel } from './CaravanModel';
@@ -7,6 +7,34 @@ import { CameraRig } from './CameraRig';
 import { HotspotMarker } from './HotspotMarker';
 import { useChecklistStore } from '../../store/useChecklistStore';
 import { INSPECTION_STEPS } from '../../config/stepsConfig';
+
+// Responsive camera adapter for mobile portrait vs desktop widescreen
+const ResponsiveCameraHandler: React.FC = () => {
+  const { camera, size } = useThree();
+  const isGarage = useChecklistStore((state) => state.isGarage);
+
+  useEffect(() => {
+    const aspect = size.width / size.height;
+    if (camera instanceof THREE.PerspectiveCamera) {
+      if (aspect < 0.6) {
+        // Narrow smartphone portrait (iPhone, Samsung Galaxy)
+        camera.fov = isGarage ? 58 : 52;
+      } else if (aspect < 1.0) {
+        // Standard mobile / tablet portrait
+        camera.fov = isGarage ? 50 : 46;
+      } else if (aspect < 1.4) {
+        // Square / iPad landscape
+        camera.fov = 44;
+      } else {
+        // Desktop widescreen
+        camera.fov = 40;
+      }
+      camera.updateProjectionMatrix();
+    }
+  }, [camera, size.width, size.height, isGarage]);
+
+  return null;
+};
 
 // Need for Speed Showroom Glowing Turntable Floor
 const GaragePodium: React.FC = () => {
@@ -80,11 +108,14 @@ export const CaravanScene: React.FC = () => {
   return (
     <div className="w-full h-full absolute inset-0">
       <Canvas
-        camera={{ position: [6.8, 3.2, 6.2], fov: 42, near: 0.1, far: 50 }}
+        camera={{ position: [7.2, 3.2, 6.5], fov: 42, near: 0.1, far: 60 }}
         dpr={[1, 2]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         <color attach="background" args={['#030b17']} />
+
+        {/* Dynamic Responsive Camera Adapter */}
+        <ResponsiveCameraHandler />
 
         {/* Ambient & Studio Lighting */}
         <ambientLight intensity={0.85} />
@@ -119,10 +150,10 @@ export const CaravanScene: React.FC = () => {
             enablePan={false}
             enableZoom={false}
             autoRotate={true}
-            autoRotateSpeed={1.4}
+            autoRotateSpeed={1.2}
             minPolarAngle={Math.PI / 4}
             maxPolarAngle={Math.PI / 2 - 0.05}
-            target={[0, 1.2, 0.0]}
+            target={[0, 1.25, 0.0]}
           />
         ) : (
           <CameraRig />
